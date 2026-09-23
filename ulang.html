@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Syifa Namira 🎉</title>
+    <style>
+  :root {
+    --teal-950: #0E2B2B;
+    --teal-900: #123838;
+    --teal-800: #184848;
+    --peach-400: #F2A65A;
+    --peach-300: #F6C08B;
+    --rose-500: #E8637A;
+    --cream-100: #FBF3E7;
+    --ink: #FBF3E7;
+    --ink-soft: rgba(251, 243, 231, 0.72);
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: radial-gradient(ellipse 120% 80% at 50% -10%, var(--teal-800), var(--teal-950) 60%);
+    color: var(--ink);
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+    min-height: 100%;
+  }
+  .stars {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1.5px 1.5px at 70% 15%, rgba(255,255,255,.4), transparent),
+      radial-gradient(1px 1px at 85% 45%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1px 1px at 35% 70%, rgba(255,255,255,.35), transparent),
+      radial-gradient(1.5px 1.5px at 55% 85%, rgba(255,255,255,.4), transparent),
+      radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,.3), transparent);
+  }
+  canvas#confetti { position: fixed; inset: 0; pointer-events: none !important; z-index: 50; width: 100%; height: 100%; }
+
+  main { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 0 24px 80px; }
+
+  .hero { min-height: 92vh; min-height: 92svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; padding-top: env(safe-area-inset-top, 0px); }
+  .eyebrow-badge { font-weight: 700; font-size: 14px; color: var(--peach-300); letter-spacing: 0.02em; }
+  .hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 700; font-optical-sizing: auto;
+    font-size: clamp(2.6rem, 12vw, 4.2rem); line-height: 1.02; margin: 0;
+    background: linear-gradient(180deg, #FFFFFF, var(--peach-300));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .age { font-family: 'Fraunces', serif; font-size: clamp(1.1rem, 4vw, 1.4rem); color: var(--ink-soft); font-style: italic; font-weight: 400; }
+
+  .cake-wrap { position: relative; width: 220px; height: 200px; margin-top: 6px; }
+  svg#cake { width: 100%; height: 100%; overflow: visible; }
+  .flame { transform-origin: center bottom; animation: flicker 1.6s ease-in-out infinite alternate; }
+  @keyframes flicker { 0% { transform: scaleY(1) rotate(-2deg); } 100% { transform: scaleY(1.12) rotate(2deg); } }
+  .flame.out { animation: none; opacity: 0; transition: opacity .3s ease; }
+  .smoke { opacity: 0; }
+  .smoke.show { animation: smokeRise 1.4s ease-out forwards; }
+  @keyframes smokeRise { 0% { opacity: .6; transform: translateY(0) scale(0.6); } 100% { opacity: 0; transform: translateY(-30px) scale(1.4); } }
+
+  .blow-btn {
+    font-weight: 800; font-size: 16px; color: var(--teal-950); background: var(--peach-400);
+    border: none; border-radius: 999px; padding: 14px 30px; cursor: pointer;
+    box-shadow: 0 8px 20px rgba(242,166,90,.25); transition: transform .15s ease;
+  }
+  .blow-btn:active { transform: scale(0.96); }
+  .blow-btn:disabled { opacity: 0.5; cursor: default; }
+  .hint { font-size: 13px; color: var(--ink-soft); margin-top: -8px; }
+
+  section { padding: 56px 0; border-top: 1px solid rgba(251,243,231,0.1); }
+  .section-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(1.5rem, 6vw, 2rem); margin: 0 0 20px; color: var(--cream-100); }
+
+  .letter {
+    background: rgba(251,243,231,0.05); border: 1px solid rgba(251,243,231,0.12);
+    border-radius: 20px; padding: 28px 24px; font-family: 'Fraunces', serif;
+    font-size: 1.05rem; line-height: 1.75; color: var(--ink-soft);
+  }
+  .letter p { margin: 0 0 16px; }
+  .letter p:last-child { margin-bottom: 0; }
+  .signoff { color: var(--cream-100); font-style: italic; }
+
+  .wishes { display: flex; flex-direction: column; gap: 12px; }
+  .wish-input-row { display: flex; gap: 8px; }
+  .wish-input-row input {
+    flex: 1; padding: 12px 16px; border-radius: 999px; border: 1px solid rgba(251,243,231,0.2);
+    background: rgba(251,243,231,0.06); color: var(--ink); font-size: 14px;
+  }
+  .wish-input-row input::placeholder { color: rgba(251,243,231,0.4); }
+  .wish-input-row button {
+    background: var(--rose-500); color: var(--teal-950); border: none; border-radius: 999px;
+    padding: 0 20px; font-weight: 800; cursor: pointer; font-size: 14px;
+  }
+  .wish-list { display: flex; flex-direction: column; gap: 10px; }
+  .wish-item {
+    background: rgba(251,243,231,0.05); border: 1px solid rgba(251,243,231,0.1);
+    border-radius: 14px; padding: 12px 16px; font-size: 14px; color: var(--ink-soft);
+  }
+  .wish-item b { color: var(--cream-100); }
+
+  footer { text-align: center; padding: 40px 0 10px; font-size: 13px; color: rgba(251,243,231,0.35); }
+</style>
+</head>
+<body>
+    <div class="stars"></div>
+    <canvas id="confetti"></canvas>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow-badge">Hari Spesial Cipa</div>
+    <h1>Selamat Ulang<br>Tahun, Cipa!</h1>
+    <div class="age">Semoga tahun ini lebih baik dari sebelumnya ✨</div>
+
+    <div class="cake-wrap">
+      <svg id="cake" viewBox="0 0 220 200">
+        <ellipse cx="110" cy="178" rx="88" ry="14" fill="#000" opacity="0.18"/>
+        <rect x="30" y="120" width="160" height="50" rx="10" fill="#F6C08B"/>
+        <rect x="30" y="120" width="160" height="14" rx="7" fill="#FBF3E7" opacity="0.85"/>
+        <rect x="50" y="90" width="120" height="38" rx="10" fill="#E8637A"/>
+        <rect x="50" y="90" width="120" height="12" rx="6" fill="#FBF3E7" opacity="0.85"/>
+        <g id="candle1">
+          <rect x="70" y="62" width="8" height="30" rx="3" fill="#FBF3E7"/>
+          <ellipse class="flame f" cx="74" cy="56" rx="6" ry="10" fill="#F2A65A"/>
+          <ellipse class="flame f" cx="74" cy="54" rx="3" ry="5" fill="#FFF3D6"/>
+          <g class="smoke" transform="translate(74,50)"><path d="M0,0 q4,-8 -2,-14" stroke="#c8d6d0" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+        </g>
+        <g id="candle2">
+          <rect x="106" y="54" width="8" height="38" rx="3" fill="#FBF3E7"/>
+          <ellipse class="flame f" cx="110" cy="48" rx="6" ry="10" fill="#F2A65A"/>
+          <ellipse class="flame f" cx="110" cy="46" rx="3" ry="5" fill="#FFF3D6"/>
+          <g class="smoke" transform="translate(110,42)"><path d="M0,0 q4,-8 -2,-14" stroke="#c8d6d0" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+        </g>
+        <g id="candle3">
+          <rect x="142" y="62" width="8" height="30" rx="3" fill="#FBF3E7"/>
+          <ellipse class="flame f" cx="146" cy="56" rx="6" ry="10" fill="#F2A65A"/>
+          <ellipse class="flame f" cx="146" cy="54" rx="3" ry="5" fill="#FFF3D6"/>
+          <g class="smoke" transform="translate(146,50)"><path d="M0,0 q4,-8 -2,-14" stroke="#c8d6d0" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+        </g>
+      </svg>
+    </div>
+
+    <button class="blow-btn" id="blowBtn" onclick="blowCandles()">Tiup lilinnya 🎂</button>
+    <div class="hint">Tap tombolnya untuk bikin permintaan &amp; tiup lilin</div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Sepucuk pesan untuk Cipa</h2>
+    <div class="letter">
+      <p>Cipa, selamat ulang tahun! Semoga di umur yang baru ini kamu makin banyak dapat hal-hal baik yang selama ini kamu perjuangkan diam-diam.</p>
+      <p>Makasih ya sudah jadi teman yang selalu ada. Semoga kamu lebih sering tidur cukup, lebih sehat, dan lebih sayang sama diri sendiri di tahun ini.</p>
+      <p class="signoff">Selamat merayakan hari jadimu, Cipa. 🤍</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Tinggalkan ucapan buat Cipa</h2>
+    <div class="wishes">
+      <div class="wish-input-row">
+        <input type="text" id="nameInput" placeholder="Nama kamu">
+      </div>
+      <div class="wish-input-row">
+        <input type="text" id="wishInput" placeholder="Tulis ucapanmu di sini...">
+        <button onclick="addWish()">Kirim</button>
+      </div>
+      <div class="wish-list" id="wishList"></div>
+    </div>
+  </section>
+
+  <footer>Dibuat dengan 🤍 untuk Cipa</footer>
+</main>
+
+<script>
+  const canvas = document.getElementById('confetti');
+  const ctx = canvas.getContext('2d');
+  function resize(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+  resize(); addEventListener('resize', resize);
+  let particles = [];
+  const colors = ['#F2A65A','#E8637A','#FBF3E7','#F6C08B','#7AC9B7'];
+  function burstConfetti(count=140){
+    for(let i=0;i<count;i++){
+      particles.push({
+        x: canvas.width/2 + (Math.random()-0.5)*80,
+        y: canvas.height*0.35,
+        vx: (Math.random()-0.5)*11,
+        vy: Math.random()*-9 - 3,
+        size: Math.random()*6+4,
+        color: colors[Math.floor(Math.random()*colors.length)],
+        rot: Math.random()*360,
+        vr: (Math.random()-0.5)*12,
+        life: 0
+      });
+    }
+  }
+  function loop(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.vy += 0.28; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life++;
+      ctx.save();
+      ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = Math.max(0, 1 - p.life/160);
+      ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*0.6);
+      ctx.restore();
+    });
+    particles = particles.filter(p=>p.life < 160 && p.y < canvas.height+50);
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  let blown = false;
+  function blowCandles(){
+    if(blown) return;
+    blown = true;
+    document.querySelectorAll('.flame').forEach((f,i)=>{
+      setTimeout(()=>{ f.classList.add('out'); }, i*150);
+    });
+    document.querySelectorAll('.smoke').forEach((s,i)=>{
+      setTimeout(()=>{ s.classList.add('show'); }, i*150 + 100);
+    });
+    setTimeout(()=>burstConfetti(160), 200);
+    const btn = document.getElementById('blowBtn');
+    btn.textContent = 'Permintaan terkirim ke semesta ✨';
+    btn.disabled = true;
+  }
+
+  const wishList = document.getElementById('wishList');
+  const seedWishes = [
+    {name:'Teman Cipa', text:'Happy birthday Cipa! Semoga makin bahagia 🎉'}
+  ];
+  function renderWish(w){
+    const div = document.createElement('div');
+    div.className = 'wish-item';
+    div.innerHTML = `<b>${escapeHtml(w.name)}</b> — ${escapeHtml(w.text)}`;
+    wishList.prepend(div);
+  }
+  function escapeHtml(str){
+    const d = document.createElement('div'); d.textContent = str; return d.innerHTML;
+  }
+  seedWishes.forEach(renderWish);
+  function addWish(){
+    const nameInput = document.getElementById('nameInput');
+    const wishInput = document.getElementById('wishInput');
+    const name = nameInput.value.trim() || 'Anonim';
+    const text = wishInput.value.trim();
+    if(!text) return;
+    renderWish({name, text});
+    wishInput.value = '';
+    burstConfetti(50);
+  }
+</script>
+</body>
+</html>
